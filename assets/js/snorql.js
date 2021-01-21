@@ -3,8 +3,8 @@ var _examples_repo = "https://github.com/wikipathways/SPARQLQueries";
 var _defaultGraph = "";
 var _namespaces = snorql_namespacePrefixes;
 
-var _poweredByLink = 'https://github.com/ammar257ammar/snorql-extended';
-var _poweredByLabel = 'Snorql - Extended Edition';
+var _poweredByLink = 'https://github.com/wikipathways/snorql-extended';
+var _poweredByLabel = 'Wikipathways SNORQL';
 
 function setCookie(cname, cvalue){
     var d = new Date();

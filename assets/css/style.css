@@ -41,3 +41,15 @@ footer p{
     max-height: 550px;
     overflow-y: scroll;
 }
+
+#index-page {
+    padding: 3px 15px;
+}
+
+#index-page img{
+    border-radius: 15px;
+}
+
+.navbar {
+    height: 85px !important;
+}
