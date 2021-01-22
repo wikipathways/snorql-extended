@@ -53,3 +53,8 @@ footer p{
 .navbar {
     height: 85px !important;
 }
+
+#permalink-url{
+  font-size: 24px;
+  text-align: center;
+}
