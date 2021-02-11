@@ -6,6 +6,8 @@ var _namespaces = snorql_namespacePrefixes;
 var _poweredByLink = 'https://github.com/wikipathways/snorql-extended';
 var _poweredByLabel = 'Wikipathways SNORQL';
 
+var _showLiteralType = false;
+
 function setCookie(cname, cvalue){
     var d = new Date();
     d.setTime(d.getTime() + (365*24*60*60*1000));
@@ -56,7 +58,7 @@ function mainAjax(link, repo){
                     url: link,
                     dataType: 'json'
                 });
-
+                   
     pager.done(function(results){
 
         results = results["tree"];
@@ -285,8 +287,14 @@ function display(node, whereID) {
 function displayResult(json, resultTitle) {
 
     var div = document.createElement('div');
+
+    var resCount = document.createElement("small");
+    resCount.classList.add("text-muted");
+    resCount.appendChild(document.createTextNode(" ("+json.results.bindings.length+" results)"));
+
     var title = document.createElement('h3');
     title.appendChild(document.createTextNode(resultTitle));
+    title.appendChild(resCount);
     div.appendChild(title);
 
     if (json.results.bindings.length == 0) {
@@ -394,31 +402,40 @@ function nodeToHTML(node, linkMaker) {
     if (node.type == 'bnode') {
         return document.createTextNode('_:' + node.value);
     }
-    if (node.type == 'literal') {
-        var text = '"' + node.value + '"';
-        if (node['xml:lang']) {
-            text += '@' + node['xml:lang'];
-        }
-        return document.createTextNode(text);
-    }
-    if (node.type == 'typed-literal') {
 
-        var text = '"' + node.value + '"';
+    if(_showLiteralType){
 
-        if (node.datatype) {
-            text += '^^' + toQNameOrURI(node.datatype);
-        }
-
-        for (i in numericXSDTypes) {
-            if (numericXSDTypes[i] == node.datatype) {
-                var span = document.createElement('span');
-                span.title = text;
-                span.appendChild(document.createTextNode(node.value));
-                return span;
+        if (node.type == 'literal') {
+            var text = '"' + node.value + '"';
+            if (node['xml:lang']) {
+                text += '@' + node['xml:lang'];
             }
+            return document.createTextNode(text);
         }
-        return document.createTextNode(text);
+        
+        if (node.type == 'typed-literal') {
+
+            var text = '"' + node.value + '"';
+
+            if (node.datatype) {
+                text += '^^' + toQNameOrURI(node.datatype);
+            }
+
+            for (i in numericXSDTypes) {
+                if (numericXSDTypes[i] == node.datatype) {
+                    var span = document.createElement('span');
+                    span.title = text;
+                    span.appendChild(document.createTextNode(node.value));
+                    return span;
+                }
+            }
+            return document.createTextNode(text);
+        }
+
+    }else{
+        return document.createTextNode(node.value);
     }
+
     return document.createTextNode('???');
 }
 
