@@ -11,7 +11,15 @@ jQuery(document).ready(function() {
 
             $('#cookieModal button.btn-secondary').on('click', function (e) {
                 setCookie("cookieDecision", "reject");
-                window.location.href = "http://wikipathways.org";
+		var pathQueryIndex = window.location.href.indexOf("?")
+		var path = window.location.href
+		
+		if(pathQueryIndex != -1){
+		  var newPath = window.location.href.substring(0,pathQueryIndex)
+		  window.location.href = newPath.endsWith("/") ? newPath.slice(0,-1) +"/cookies.html" : newPath +"/cookies.html";
+		}else{
+		  window.location.href = path.endsWith("/") ? path.slice(0,-1) +"/cookies.html" : path +"/cookies.html";	
+		}
             });
 
             $("#cookieModal button.btn-primary").on('click', function(){
@@ -140,6 +148,7 @@ jQuery(document).ready(function() {
 
             var query = editor.getDoc().getValue();
             var queryText = getPrefixes() + query;
+	    query = query.trim()
 
             query = "?q="+encodeURIComponent(query);
 
@@ -148,7 +157,7 @@ jQuery(document).ready(function() {
             var accessToken = "b0021fe4839aefbc4e7967b3578443d9ea6e89bf";
 
             var params = {
-                "long_url" : url
+                "long_url" : url.trim()
             };
 
             $.ajax({
