@@ -1,4 +1,4 @@
-var _endpoint = "https://sparql.wikipathways.org/sparql";
+var _endpoint = "https://sparql.wikipathways.org/sparql/";
 var _examples_repo = "https://github.com/wikipathways/SPARQLQueries";
 var _defaultGraph = "";
 var _namespaces = snorql_namespacePrefixes;
