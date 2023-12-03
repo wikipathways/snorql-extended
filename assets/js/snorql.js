@@ -1,9 +1,9 @@
-var _endpoint = "https://chemblmirror.rdf.bigcat-bioinformatics.org/sparql";
-var _examples_repo = "https://github.com/BiGCAT-UM/ChEMBL-SPARQL-Queries";
+var _endpoint = "https://sparql.wikipathways.org/sparql/";
+var _examples_repo = "https://github.com/wikipathways/SPARQLQueries";
 var _defaultGraph = "";
 var _namespaces = snorql_namespacePrefixes;
 
-var _poweredByLink = 'https://github.com/ammar257ammar/snorql-extended';
+var _poweredByLink = 'https://github.com/wikipathways/snorql-extended';
 var _poweredByLabel = 'Snorql - Extended Edition';
 
 var _showLiteralType = false;
