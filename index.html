@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,21 +14,21 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-treeview.min.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 
-	<script type="text/javascript" src="assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 	
-    <script type="text/javascript" src="assets/codemirror/lib/codemirror.js"></script>	
-	<script type="text/javascript" src="assets/codemirror/mode/javascript/javascript.js"></script>
-	<script type="text/javascript" src="assets/codemirror/addon/selection/active-line.js"></script>
-	<script type="text/javascript" src="assets/codemirror/addon/edit/matchbrackets.js"></script>
-	<script type="text/javascript" src="assets/codemirror/addon/display/fullscreen.js"></script>
-	<script type="text/javascript" src="assets/codemirror/sparql.js"></script>		
+    <script src="assets/codemirror/lib/codemirror.js"></script>	
+	<script src="assets/codemirror/mode/javascript/javascript.js"></script>
+	<script src="assets/codemirror/addon/selection/active-line.js"></script>
+	<script src="assets/codemirror/addon/edit/matchbrackets.js"></script>
+	<script src="assets/codemirror/addon/display/fullscreen.js"></script>
+	<script src="assets/codemirror/sparql.js"></script>		
 	
-	<script type="text/javascript" src="assets/js/bootstrap-treeview.min.js"></script>
-    <script type="text/javascript" src="assets/js/sparql.js"></script>
-    <script type="text/javascript" src="assets/js/namespaces.js"></script>
-    <script type="text/javascript" src="assets/js/snorql.js"></script>
-	<script type="text/javascript" src="assets/js/script.js"></script>
+	<script src="assets/js/bootstrap-treeview.min.js"></script>
+    <script src="assets/js/sparql.js"></script>
+    <script src="assets/js/namespaces.js"></script>
+    <script src="assets/js/snorql.js"></script>
+	<script src="assets/js/script.js"></script>
   </head>
 
   <body onload="start()">
@@ -102,7 +102,7 @@
 						<!-- <form> -->
 						<div class="form-group">
 						  <label for="input-search" class="sr-only">Search Tree:</label>
-						  <input type="input" class="form-control" id="input-search" placeholder="Type part of the query file name to search for..." value="">
+						  <input type="text" class="form-control" id="input-search" placeholder="Type part of the query file name to search for..." value="">
 						</div>
 						<button type="button" class="btn btn-success" id="btn-search">Search</button>
 						<button type="button" class="btn btn-default" id="btn-clear-search">Clear</button>
@@ -148,7 +148,7 @@
 			<h3 class="modal-title">Cookies Usage</h3>
 		  </div>
 		  <div class="modal-body">
-			<p>We use site preferences cookies to provide you with a great experience on this site, specifically to keep your chosen SPARQL endpoint and examples repository URL when you refresh the page or navigate this site.</br>
+			<p>We use site preferences cookies to provide you with a great experience on this site, specifically to keep your chosen SPARQL endpoint and examples repository URL when you refresh the page or navigate this site.<br />
 			   If you need more information, please read our <a href="cookies.html">Cookie Policy</a>. 
 			</p>
 		  </div>
@@ -187,7 +187,7 @@
 			<!-- <form> -->
 			<div class="form-group">
 			  <label for="input-search" class="sr-only">Search Tree:</label>
-			  <input type="input" class="form-control" id="input-search-fs" placeholder="Type part of the query file name to search for..." value="">
+			  <input type="text" class="form-control" id="input-search-fs" placeholder="Type part of the query file name to search for..." value="">
 			</div>
 			<button type="button" class="btn btn-success" id="btn-search-fs">Search</button>
 			<button type="button" class="btn btn-default" id="btn-clear-search-fs">Clear</button>
