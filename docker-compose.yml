@@ -1,29 +1,39 @@
 version: "3"
 
 services:
-  chembl-virtuoso:
+  wikipathways-virtuoso:
     image: openlink/virtuoso-opensource-7:7.2.11
     restart: always
-    container_name: chembl-virtuoso
+    container_name: wikipathways-virtuoso
     volumes:
+<<<<<<< HEAD
       - VIRTUOSO_DB_PERSISTENT_DIR:/database # directory to persist the Virtuoso database. If empty dir, a new database will be created
+=======
+      - /home/MarvinMartens/snorql-extended/import:/import # directory where RDF files are located to be imported into Virtuoso
+      - /home/MarvinMartens/snorql-extended/data:/opt/virtuoso-opensource/database # directory to persist the Virtuoso database
+>>>>>>> f590609 (docker compose for wikipathways service)
     environment:
-      - DBA_PASSWORD=CONDUCTOR_PASSWORD
+      - DBA_PASSWORD=dbaisapasswordthatshouldbeupdated
       - SPARQL_UPDATE=false
     ports:
-      - "8899:8890"
-      - "1133:1111"
+      - "8900:8890"
+      - "1134:1111"
   snorql:
     image: aammar/snorql-httpd:latest
     restart: always
-    container_name: snorql
-    #volumes:
-    #  - SNORQL_WEB_FILES_DIR:/usr/local/apache2/htdocs # To customize the snorql interface, clone the GitHub repo and use its directory as SNORQL_WEB_FILES_DIR
+    container_name: wikipathways-snorql
+#    volumes:
+#      - /home/MarvinMartens/snorql-extended:/usr/local/apache2/htdocs # To customize the snorql interface, clone the GitHub repo and use its directory as SNORQL_WEB_FILES_DIR
     environment:
-      - SNORQL_ENDPOINT=ENDPOINT_URL
-      - SNORQL_EXAMPLES_REPO=EXAMPLES_REPO_URL
-      - SNORQL_TITLE=SNORQL_TITLE_STRING
-      - DEFAULT_GRAPH=ENDPOINT_DEFAULT_GRAPH_URL
+      - SNORQL_ENDPOINT=https://sparql.wikipathways.org/sparql/
+      - SNORQL_EXAMPLES_REPO=https://github.com/wikipathways/SPARQLQueries
+      - SNORQL_TITLE=WikiPathways SNORQL UI
+      - DEFAULT_GRAPH=http://rdf.wikipathways.org/
     ports:
+<<<<<<< HEAD
       - "8088:80"
       - "4430:443"
+=======
+      - "8091:80"
+      - "4431:443"
+>>>>>>> f590609 (docker compose for wikipathways service)
