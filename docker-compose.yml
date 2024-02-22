@@ -6,12 +6,7 @@ services:
     restart: always
     container_name: wikipathways-virtuoso
     volumes:
-<<<<<<< HEAD
       - VIRTUOSO_DB_PERSISTENT_DIR:/database # directory to persist the Virtuoso database. If empty dir, a new database will be created
-=======
-      - /home/MarvinMartens/snorql-extended/import:/import # directory where RDF files are located to be imported into Virtuoso
-      - /home/MarvinMartens/snorql-extended/data:/opt/virtuoso-opensource/database # directory to persist the Virtuoso database
->>>>>>> f590609 (docker compose for wikipathways service)
     environment:
       - DBA_PASSWORD=dbaisapasswordthatshouldbeupdated
       - SPARQL_UPDATE=false
